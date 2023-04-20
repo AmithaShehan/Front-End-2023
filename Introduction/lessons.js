@@ -121,5 +121,13 @@ console.log(myName);
 const myCorrectName = myName.replace('s', 'a Shehan ');
 console.log(myCorrectName);
 */
+/*
 const str = 'Hello World';
-console.log(str.toUpperCase().split(" ").indexOf('WORLD'));
+console.log(str.toUpperCase().split(" ").indexOf('WORLD'));*/
+
+const myString = 'My Dog jumped on the bed, my dog is a bad Dog';
+const newString = myString.replaceAll('Dog', 'cat');
+console.log(newString);//this is case sensitive
+//so lets use regular expressions
+const correctStr = myString.replaceAll(/[Dd ]{1}og/g,'cat') // g is the global flag
+console.log(correctStr);

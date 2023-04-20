@@ -1,0 +1,148 @@
+Reason for using call back functions
+  * Reusablility
+  * Asynchronous programming 
+The map() method creates a new array populated with the results of calling a provided function on every element in the calling array. 
+
+---------------------------------------------------------------------------------------
+const myArray = [2, 4, 6, 8];
+function myCustomMapOperationCallback(eachElementFromArray){
+  return eachElementFromArray * 2; //trasformed value
+}//map function creates a new array it cannot modify existing array
+//.map is the built in function for array
+const myNewArray = myArray.map(myCustomMapOperationCallback);
+console.log(myNewArray);
+
+const strArr = ['amitha', 'shehan', 'perera'];
+const newStrArr = strArr.map(eachElementFromArray => eachElementFromArray[0])
+console.log(newStrArr)
+Array(3) [ "a", "s", "p" ]
+---------------------------------------------------------------------------------------
+basic idea is we can use .map function over and over again
+
+Primitives
+
+everything in JS is an object.
+
+
+--------------------------------------------------------------------------------------
+const string1 = new String('hello, world!'); // this is an object, not a string, new is an operator
+const string2 = 'hello, world!'; //this is a primitive
+console.log(string1 === string2); //false
+console.log(string1 == string2); //true 
+--------------------------------------------------------------------------------------
+false
+true
+--------------------------------------------------------------------------------------
+
+const myDate = new Date(); //creates a new instance of Date object (taking a copy)
+
+javascript Date  (refer zack gollwitzer guide - a complete guide to javascript dates)
+
+--------------------------------------------------------------------------------------
+const myDate = new Date();
+myDate
+myDate.toString()
+myDate.toISOString()
+myDate.getMonth()
+myDate.getFullYear()
+--------------------------------------------------------------------------------------
+
+Javascript Expressions
+
+knowing a wrong email address
+used for validation
+pattern matching
+--------------------------------------------------------------------------------------
+const emailValidatorRegEx = new RegExp('^.+@.+\..+$');
+const userInput = 'invalidemail@g';
+const isValid = emailValidatorRegEx.test(userInput);
+console.log(isValid);
+--------------------------------------------------------------------------------------
+^ - start at the beginning of text
+. - all characters
++ - i want to match any character one or more time
+@ - looking to @ symbol
++ - i want to match any character one or more time
+\ - escape
+. - look for a period
+. - any characters
++ - i want to match any character one or more time
+$ - end of the line
+
+
+Regular Expressions is a combination of identifiers and quantifiers
+identifiers - can be special characters, or phraces that we are trying to match
+--------------------------------------------------------------------------------------
+const regex1 = RegExp('g');
+const string1 = 'my favorite food is steak';
+const string2 = 'my favorite thing to do is code';
+regex1.test(string1)
+--------------------------------------------------------------------------------------
+false
+
+we can compare not only characters but also phraces like 'favorite'.
+this is case sensitive 
+
+common way of writing regular Expressions
+/favorite/ test(string1)
+
+
+comparing character groups
+
+/[a-z]/.test(string1) //compares simple letters from a to zack
+
+[A-Z] compares caplital letters from A - Z.
+[0-9] compares digits 0-9
+[A-Z0-9a-z ] compares capital letters + simple letters + digits + spaces
+[\d] same as [0-9]
+[\s] white space characters
+[\w] all letters and numbers
+/^f/ first letter of the text f(if is f true otherwise false)
+/f$/ first letter of the text f(if is f true otherwise false)
+/(code | steak)/ match either code or steak
+
+ Quantifiers
+
+ /[a-z]/.exce(string1) returns Array ["m"] because first letters matches
+/[a-z ]{5}/exec.(string1) retur first five characters including space
+  
+
+Flags
+
+const str = 'hello world, 2021 @ more of a string'; //to match the following string
+/^[a-z ]+,[0-9 ]+@[a-z ]+$/.exec(str)
+
+or
+
+/.+/.exec(str) // this checks any character one or more times
+
+
+String methods
+
+we will be covering replaceAll, toUpperCase, substring, trim, match
+
+const myString = 'My Dog jumped on the bed, my dog is a bad Dog';
+const newString = myString.replaceAll('Dog', 'cat');
+console.log(newString);//this is case sensitive
+//so lets use regular expressions
+const correctStr = myString.replaceAll(/[Dd]{1}og/g,'cat') // g is the global flag
+console.log(correctStr);
+
+str.toUpperCase();
+
+str.substring(indexStart, [indexEnd]) // indexEnd is optional.
+
+to capitalize first letter in a sentence
+
+const myString = 'hello world'
+const result = myString[0].toUpperCase() + myString.substring(1, myString.length);
+
+Trim method removes white spaces from both ends not in the middle, use full when removing white spaces in start and end from data from external sources
+ 
+7.40H
+
+
+
+ 
+
+ 
