@@ -236,3 +236,16 @@ function century(year) {
 }
 console.log(century(400390));
 */
+
+//-------------------------------------------------------Intermediate------------------------------------------------------------
+function filter_list(array) {
+  return array.filter(callBackFunction)
+}
+
+function callBackFunction(arrItem) {
+  if (typeof arrItem == 'number') {
+    return true;
+  }
+}
+
+console.log(filter_list([1, 5, 6, 8, 'sdf', '78']));

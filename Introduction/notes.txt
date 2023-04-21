@@ -139,10 +139,386 @@ const result = myString[0].toUpperCase() + myString.substring(1, myString.length
 
 Trim method removes white spaces from both ends not in the middle, use full when removing white spaces in start and end from data from external sources
  
-7.40H
+Array methods
+
+pop removes the last element in the array
+
+const arr = [1,2,3,4,5]
+arr.pop()//removed 5 from array
+
+push adds element(s) to the end of the array
+arr.push(5,6,7)
+//arr = [1,2,3,4,5,6,7]
+
+unshift adds elements to the beginning of the array
+
+arr.unshift(0)// arr = [0,1,2,3,4,5,6,7]
+
+slice creates a basic copy(not nested elements) of an array slide(start,[end])
+
+const copyArr = arr.slice();//copyArr = [0,1,2,3,4,5,6,7]
+
+const copyArr2 = arr.slice(3) //copyArr2 = [3,4,5,6,7]
+
+The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place  
+
+To create a new array with a segment removed and/or replaced without mutating the original array, use toSpliced(). To access part of an array without modifying it,
 
 
+splice(start)
+splice(start, deleteCount)
+splice(start, deleteCount, item1)
+splice(start, deleteCount, item1, item2, itemN)
+
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// Inserts at index 1
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+months.splice(4, 1, 'May');
+// Replaces 1 element at index 4
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "May"]
 
  
+findIndex() method
+The findIndex() method returns the index of the first element in an array that satisfies the provided testing function. If no elements satisfy the testing function, -1 is returned. 
 
+we can use call back functions in findIndex() method.
+
+the find() method, which returns the first element that satisfies the testing function (rather than its index).
  
+
+ const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+
+console.log(array1.findIndex(isLargeNumber));
+// Expected output: 3
+
+
+
+const moreComplexArray = [
+  {
+    firstName: 'Bob',
+		lastName: 'Smith'
+  },
+{
+    firstName: 'Alice',
+		lastName: 'Smith'
+  },
+{
+    firstName: 'Jon',
+		lastName: 'Smith'
+  },
+{
+    firstName: 'Jon',
+		lastName: 'Smith'
+  }
+];
+
+//we cannot use indexOf method in array + objects
+
+const moreComplexArray = [
+  {
+    firstName: "Bob",
+    lastName: "Smith",
+  },
+  {
+    firstName: "Alice",
+    lastName: "Smith",
+  },
+  {
+    firstName: "Jon",
+    lastName: "Smith",
+  },
+  {
+    firstName: "Jon",
+    lastName: "Smith",
+  },
+  {
+    firstName: "Jon",
+    lastName: "Doe",
+  }
+];
+console.log(
+  moreComplexArray.findIndex((arrItem) => {
+    return arrItem.lastName !== "Smith";
+  })
+);
+
+
+map method
+
+The map() method creates a new array populated with the results of calling a provided function on every element in the calling array. 
+
+const array1 = [1, 4, 9, 16];
+
+// Pass a function to map
+const map1 = array1.map(x => x * 2);
+
+console.log(map1);
+// Expected output: Array [2, 8, 18, 32]
+
+
+to change the category of all blogposts to webdev
+
+const blogPostsFromDatabase = [
+  {
+    title: 'How to use the map() function',
+    category: 'uncategorized'
+  },
+  {
+    title: 'What is JavaScript',
+    category: 'uncategorized'
+  },
+  {
+    title: 'Why are you crazy enough to learn to code?',
+    category: 'uncategorized'
+  },
+];
+
+function changeCategory(arrayItem) {
+  arrayItem.category = 'Web Development';
+  return arrayItem;
+};
+
+const newDBArray = blogPostsFromDatabase.map(changeCategory);
+
+console.log(newDBArray);
+
+//or we could use
+
+blogPostsFromDatabase.map(arrItem => {
+  arrItem.category = 'Web Development';
+  return arrItem;
+})
+
+
+forEach() method
+
+the forEach() method executes a provided function once for each array element. just like for loop
+
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+// Expected output: "a"
+// Expected output: "b"
+// Expected output: "c"
+
+
+const array1 = [1, 2, 3, 4, 5];
+
+array1.forEach(element => console.log(element));
+
+includes() method
+
+The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. 
+
+const array1 = [1, 2, 3];
+
+console.log(array1.includes(2));
+// Expected output: true
+
+const pets = ['cat', 'dog', 'bat'];
+
+console.log(pets.includes('cat'));
+// Expected output: true
+
+console.log(pets.includes('at'));
+// Expected output: false
+
+
+filter() method
+
+The filter() method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
+
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+// Expected output: Array ["exuberant", "destruction", "present"]
+
+
+const allOrders = [
+  {
+    productName: "Tea Pot",
+    isDigital: false,
+    isCancelled: false,
+    isOpen: false,
+  },
+  {
+    productName: "Mens hoodie",
+    isDigital: false,
+    isCancelled: true,
+    isOpen: false,
+  },
+  {
+    productName: "Coding book",
+    isDigital: true,
+    isCancelled: true,
+    isOpen: false,
+  },
+  {
+    productName: "Atomic habits book",
+    isDigital: true,
+    isCancelled: false,
+    isOpen: false,
+  },
+];
+
+const digitalOrders = allOrders.filter((arrItem) => {
+  return arrItem.isDigital;
+});
+
+console.log(digitalOrders);
+
+const cancelledDigitalOrders = allOrders.filter(arrItem => {
+  return arrItem.isDigital && !arrItem.isCancelled
+})
+
+console.log(cancelledDigitalOrders);
+
+reduce() method
+
+ The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+
+The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. Otherwise the array element at index 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
+
+Perhaps the easiest-to-understand case for reduce() is to return the sum of all the elements in an array:
+
+simple example is to take the sum of an array
+
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+// Expected output: 10
+
+//another way
+const array = [1, 2, 3, 4];
+
+function reducerCallBack(sum, arrItem) {
+  return sum + arrItem;
+}
+
+console.log(array.reduce(reducerCallBack, 0));
+
+//another way to write callback function
+array.reduce((sum, arrItem) =>  sum+=arr,0)
+
+we cannot use == or === to check similarity between two objects
+
+const obj1 = { prop1: 'some Value' };
+const obj2 = { prop1: 'some Value' };
+console.log(obj1 === obj2);
+console.log(obj1 == obj2);
+
+//answers we get are
+false
+false
+
+
+we can use isEqual() method from lodash library to check similarity between objects 
+
+Math object 
+
+no need create(cannot) instances
+
+Math.PI //return pi value
+Math.abs(-60) //return 60
+Math.ceil(Math.PI) //return 4
+Math.max(2,5,8) //return 8
+Math.random() // return a random value between 0 & 1
+
+
+//generating a random value between 0-100
+/*
+const randomNumber = Math.random();
+const randomNumberTo100 = randomNumber * 100;
+const randomNumberFloor = Math.floor(randomNumberTo100);
+console.log(randomNumberFloor);
+*/
+//all in one line
+
+const randNum = Math.floor(Math.random() * 100);
+console.log(randNum)
+
+const myArray = [2, 5, 6, 8, 1.2, 23];
+const randomIndex = Math.floor(Math.random() * myArray.length);
+console.log(myArray[randomIndex]);
+
+
+javascript errors
+
+3 main types of errors
+  1.reference error
+  2.syntax error
+  3.type error
+
+reference error
+
+The ReferenceError object represents an error when a variable that doesn't exist (or hasn't yet been initialized) in the current scope is referenced.
+
+syntax error
+
+The SyntaxError object represents an error when trying to interpret syntactically invalid code
+
+type error
+
+The TypeError object represents an error when an operation could not be performed, typically (but not exclusively) when a value is not of the expected type.
+
+A TypeError may be thrown when:
+
+    an operand or argument passed to a function is incompatible with the type expected by that operator or function; or
+    when attempting to modify a value that cannot be changed; or
+    when attempting to use a value in an inappropriate way.
+
+ex- when we add 2 objects
+
+Error Handling
+
+try {
+  var num = 45;
+  num.toUpperCase();
+}
+catch (error) {
+  console.log(error instanceof TypeError);
+  console.log(error.message);
+}
+
+//answer is
+
+true
+num.toUpperCase is not a function
+
+//NaN, null, undefined
+
+we get NaN when we are going to convert a string into a number or doing math operations on it
+
+const myString = 'some string';
+Number(myString) //NaN
+
+null
+
+const num = null; //null has a false value
+
+if(num){
+  console.log(this will not be reached)
+} else{
+  console.log(this will  be reached)
+}
+
+undefined
+
+just declaring a variable and not assigning a value
+works same as in if condition
