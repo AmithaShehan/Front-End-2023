@@ -522,3 +522,9 @@ undefined
 
 just declaring a variable and not assigning a value
 works same as in if condition
+
+
+to extract digits in a number
+
+const num = 299;
++num.toString()[0];

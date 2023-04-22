@@ -236,7 +236,7 @@ function century(year) {
 }
 console.log(century(400390));
 */
-
+/*
 //-------------------------------------------------------Intermediate------------------------------------------------------------
 function filter_list(array) {
   return array.filter(callBackFunction)
@@ -249,3 +249,191 @@ function callBackFunction(arrItem) {
 }
 
 console.log(filter_list([1, 5, 6, 8, 'sdf', '78']));
+*/
+/*
+function arrayDiff(a, b) {
+  if (a.length === 0) {
+    return [];
+  }
+  if (b.length === 0) {
+    return a;
+  }
+  let newA = a;
+  let newB = b;
+
+  a.forEach((arrItem, arrIndex) => {
+    const aCopy = newA.slice();
+    const bCopy = newB.slice();
+
+    if (b.includes(arrItem)) {
+      newA = aCopy.filter(item => item !== arrItem);
+      newB = bCopy.filter(item => item !== arrItem);
+    }
+
+  });
+  return newA;
+}
+console.log(arrayDiff([1, 2,3], []));
+console.log(arrayDiff([], [5, 6, 7, 8]));
+console.log(arrayDiff([1,2,3,6,5,6], [3,5]));
+*/
+/*
+function list(names) {
+ // console.log(names.length);
+  let finalString = '';
+
+  if (names.length === 1) {
+    return names[0].name
+  }
+
+  names.forEach((arrItem, arrIndex) => {  
+    const name = arrItem.name;
+
+    if (arrIndex === names.length - 1) {
+      finalString = finalString + ' & ' + name;
+      
+    } else if (arrIndex === names.length - 2) {
+      finalString = finalString + name;
+    } else {
+      finalString = finalString + name + ', ';
+    }
+
+  });
+
+  
+  return finalString;
+}
+console.log(list([]));
+console.log(list([{ name: 'Bart' }]));
+console.log(list([ {name: 'Bart'}, {name: 'Lisa'} ]))
+*/
+/*
+function isValidWalk(walk) {
+
+  if (walk.length !== 10) {
+    return false;
+  }
+  let northWalk = 0;
+  let southWalk = 0;
+  let eastWalk = 0;
+  let westWalk = 0;
+  walk.forEach(element => {
+    switch (element) {
+      case 'n':
+        northWalk = northWalk + 1;
+        break;
+      case 's':
+        southWalk = southWalk + 1;
+        break;
+      case 'e':
+        eastWalk = eastWalk + 1;
+        break;
+      case 'w':
+        westWalk = westWalk + 1;
+    } 
+  });
+
+  return (northWalk - southWalk === 0 && eastWalk - westWalk === 0);
+}
+
+console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's']));
+console.log(isValidWalk(['w']));
+console.log(isValidWalk(['w','e','w','e','w','e','w','e','w','e','w','e']));
+console.log(isValidWalk(['n','n','n','s','n','s','n','s','n','s']));
+*/
+/*
+function persistence(num) {
+  if (num < 10) {
+    return 0;
+  }
+  const strVersion = num.toString();
+  const arrVersion = strVersion.split('');
+  const multiplicationValue = arrVersion.reduce((acc, num) => acc *= num);
+  if (multiplicationValue >= 10) {
+    return 1 + persistence(multiplicationValue);
+  } else {
+    return 1;
+  }
+}
+
+console.log(persistence(39));
+console.log(persistence(4));
+console.log(persistence(25));
+console.log(persistence(999));
+*/
+/*
+function validatePIN (pin) {
+  const fourDigitsRegex = /(^[0-9]{4}$)/;
+  const sixDigitsRegex = /(^[0-9]{6}$)/;
+
+  const result1 = pin.match(fourDigitsRegex);
+  const result2 = pin.match(sixDigitsRegex);
+
+  if (result1 === null && result2 === null) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+*/
+/*
+function lowercaseCount(str){
+  const result = str.match(/[a-z]/g);
+  return result ? result.length : 0;
+}
+console.log(lowercaseCount(("AxC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~")));
+*/
+/*
+function isToday(date) {
+  const checkDate = date.getDate();
+  const checkMonth = date.getMonth(); // 0 indexed
+  const checkYear = date.getFullYear();
+
+  const today = new Date()
+  const todayDate = today.getDate();
+  const todayMonth = today.getMonth(); // 0 indexed
+  const todayYear = today.getFullYear();
+
+  return checkDate === todayDate && checkMonth === todayMonth && checkYear && todayYear;
+}
+*/
+/*
+function capitalize(s) {
+  const arr1 = s.split('');
+  const arr2 = s.split('');
+  arr1.forEach((item, index,original) => {
+    if (index % 2 === 0) {
+      original[index] = item.toUpperCase();
+    }
+  });
+   arr2.forEach((item, index,original) => {
+    if (index % 2 !== 0) {
+      original[index] = item.toUpperCase();
+    }
+   });
+  const arr1Str = arr1.join('');
+  const arr2Str = arr2.join('');
+  return [arr1Str, arr2Str];
+};
+
+console.log(capitalize("abcdef"));
+console.log(capitalize("codewars"));
+console.log(capitalize("abracadabra"));
+console.log(capitalize("codewarriors"));
+*/
+/*
+function maxNumber(n) {
+  return +n
+    .toString()
+    .split("")
+    .sort((first, second) => second - first)
+    .join("");
+}
+
+console.log(maxNumber(213));
+console.log(maxNumber(7389));
+console.log(maxNumber(63792));
+console.log(maxNumber(566797));
+console.log(maxNumber(1000000));
+*/
