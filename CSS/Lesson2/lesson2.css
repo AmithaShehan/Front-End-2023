@@ -110,3 +110,10 @@ button:hover{
  opacity: 0.8;
  font-size: 0.9rem;
 }
+
+@media (max-width: 650px){
+  #bottom-left-section, #bottom-right-section, #card{
+    width: 100%;
+    height: auto;
+  }
+}
