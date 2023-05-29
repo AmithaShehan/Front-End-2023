@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  border: 20px double red;
+  font-size: 1.5rem;
+  margin: 1em ;
+  padding: 1em ;
+  outline: 3px solid black;
+  outline-offset: 5px;
+  outline-offset: -20px;
+}
+.circle{
+ background-color: gold;
+ margin: 3rem auto; /*auto keyword is for left and right so it will be centered*/
+ width: 100px;
+ height: 100px;
+ border: 2px solid red;
+ border-radius: 50px; /*half width and height*/
+ outline: 2px solid black;
+ outline-offset: 0.25rem;
+}
