@@ -46,3 +46,55 @@ main{
 footer{
   bottom: 0;
 }
+
+/* small */
+/*from 576px to 576px+, greater than 576px following styles will be applied*/
+@media screen and (min-width: 576px) {
+  body{
+    background-color: green;
+    background-image: radial-gradient(whitesmoke, green);
+  }
+  nav{
+    display: none;
+  }
+}
+
+/* Medium */
+/*from 768px to 768px+, greater than 768px following styles will be applied*/
+@media screen and (min-width: 768px) {
+  body {
+    background-color: gold;
+    background-image: radial-gradient(whitesmoke, gold);
+  }
+}
+
+/* Large */
+/*from 992px to 992px+, greater than 992px following styles will be applied*/
+@media screen and (min-width: 992px) {
+  body {
+    background-color: firebrick;
+    background-image: radial-gradient(whitesmoke, firebrick);
+  }
+}
+
+/* XL */
+/*from 1200px to 1200px+, greater than 1200px following styles will be applied*/
+@media screen and (min-width: 1200px) {
+  body {
+    background-color: rebeccapurple;
+    background-image: radial-gradient(whitesmoke, rebeccapurple);
+  }
+}
+/*mobile device landscape*/
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+  body {
+    background-color: dodgerblue;
+    background-image: radial-gradient(whitesmoke, dodgerblue);
+  }
+  h1,h2{
+    font-size: 1.5rem;
+  }
+  nav{
+    display: none;
+  }
+}
