@@ -32,16 +32,17 @@ body {
   flex-direction: column;
 }
 
-header,
-footer {
+:is(header, footer, .card) {
   position: sticky;
   background-color: #1e293b;
   color: whitesmoke;
   text-align: center;
+  z-index: 1;
 }
 
 header {
   top: 0;
+  z-index: 1;
 }
 
 nav {
@@ -51,17 +52,20 @@ nav {
   font-weight: bolder;
   display: flex;
   justify-content: space-evenly;
+  z-index: 2;
 }
 
-nav a,
-nav a:visited {
+nav a:any-link {
   color: black;
 }
 
-nav a:hover,
-nav a:focus {
+nav :is(a:hover, a:focus) {
   /*in mobile we can see this by tabbing over links*/
   color: hsla(0, 0%, 20%, 0.6);
+}
+
+nav a:active{
+  color: red;
 }
 
 main {
@@ -91,6 +95,9 @@ footer {
   align-items: center;
 }
 
+.card:target{
+  border: 3px solid rebeccapurple;
+}
 .card figure {
   display: flex;
   flex-flow: column nowrap;
@@ -101,12 +108,47 @@ footer {
   border-radius: 50%;
 }
 
+.card img:not([alt]){
+  border: 10px solid red;
+}
+/*
+.card:nth-child(2){
+  background-color: papayawhip;
+}*/
 .card figcaption {
   font-weight: bolder;
   font-size: 2rem;
   margin: 1rem;
   text-align: center;
 }
+
+.card figcaption::after{
+  content: '❤️';
+  display: block;
+}
+.card p{
+  position: relative;
+}
+
+.card figcaption::first-line{
+  font-size: 3rem;
+}
+
+.card p::before{
+  content: open-quote;
+  font-size: 3em;
+  position: absolute;
+  top: -0.25em;
+  left: -0.5em;
+}
+.card p::after {
+  content: close-quote;
+  font-size: 3em;
+    position: absolute;
+    top: -0.25em;
+    left: +2em;
+}
+
 
 /* || SMALL */
 @media screen and (min-width: 576px) {

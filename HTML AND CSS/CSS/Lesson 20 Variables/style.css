@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*variables*/
+
+:root{
+  /*color*/
+  --BGCOLOR:#125569;
+  --ALT-BGCOLOR: #1E293B;
+  /*font*/
+  --FF: "Nunito", sans-serif;
+  --FS: 1.5rem;
+  --FS-XL: 3rem;
+  /*general*/
+  --PADDING: 0.5rem;
+  --SHADOWS: 0 6px -5px var(--BGCOLOR);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --BGCOLOR: #000;
+    --ALT-BGCOLOR: #333;
+  }
+}
+
+/* || GENERAL STYLES */
+body {
+  font: var(--FS) var(--FF);
+  min-height: 100vh;
+
+  background-color: var(--BGCOLOR);
+  background-image: radial-gradient(whitesmoke, var(--BGCOLOR));
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+nav,
+main,
+footer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header,
+footer {
+  position: sticky;
+  background-color: var(--ALT-BGCOLOR);
+  color: whitesmoke;
+}
+
+header {
+  top: 0;
+}
+
+nav {
+  background-color: #fff;
+  color: #000;
+  padding: 0.5rem;
+  border-bottom: 2px solid #000;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  bottom: 0;
+}
