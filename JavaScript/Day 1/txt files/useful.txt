@@ -1,0 +1,16 @@
+escape characters
+\'
+\"
+\n
+
+interpolation - to add numbers in between string using backtick(``)
+using backticks we can do interpolate and multiline strings
+
+`items(${1 + 1})`
+
+
+variable declaration
+
+let name = 'amtitha'; // can be reassigned
+const value1 = 5; //cannot be reassign
+var variable3 = 3; // same as let can be reassigned, there are some issues, no longer used
