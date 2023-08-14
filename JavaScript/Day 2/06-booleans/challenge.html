@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Challenge Exercise</title>
+</head>
+<body>
+ <p id="cart-qty"></p>
+ <button onclick="
+ if(cartQty<10){
+  cartQty++;
+ console.log(cartQty);
+ document.getElementById('cart-qty').innerHTML = `Cart Quantity is : ${cartQty}`;
+ }
+ else{
+  alert('Cart is Full');
+ }
+ ">Add to cart</button>
+ <button onclick="
+ if(cartQty>=2){
+  cartQty -= 2;
+  document.getElementById('cart-qty').innerHTML = `Cart Quantity is : ${cartQty}`;
+ }
+ else{
+  alert('Not enough items');
+  document.getElementById('cart-qty').innerHTML = `Cart Quantity is : ${cartQty}`;
+ }
+ ">-2</button>
+ <button onclick="
+ if(cartQty>=2){
+  cartQty -= 3;
+  document.getElementById('cart-qty').innerHTML = `Cart Quantity is : ${cartQty}`;
+ }
+ else{
+  alert('Not enough items');
+  document.getElementById('cart-qty').innerHTML = `Cart Quantity is : ${cartQty}`;
+ }">-3</button>
+ <script>
+  let cartQty = 0;
+  document.getElementById('cart-qty').innerHTML = `Cart Quantity is : ${cartQty}`;
+ </script>
+</body>
+</html>

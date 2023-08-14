@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Booleans</title>
+</head>
+<body>
+ <script>/*
+  const age = 1;
+ 
+  ;
+  if(age>=18){
+   console.log('You can drive'); 
+  }
+  else if(age>=17){
+   console.log('almost there');
+  }
+  else{
+   console.log('You cannot Drive');
+  }*/
+  /*ternary operator*/
+  const result = true ? 'truthy' : 'falsy';
+  console.log(result);
+
+  /*guard operator, if first one is false code will not run further as it is false anyways. first value will be assigned to variable, if first one is true then 2nd value will be stored to the variable*/
+  const message = false && 'hello';
+  console.log(message);
+
+  /*default operator*/
+   /*default operator, if first one is false second value will be assigned to variable, if first one is true then it will be stored to the variable*/
+  const message2 = false || 'hello2';
+  console.log(message2);
+
+  const currency = undefined || 'USD'
+  console.log(currency);
+ </script>
+</body>
+</html>

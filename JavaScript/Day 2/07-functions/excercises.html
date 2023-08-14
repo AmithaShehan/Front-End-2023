@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Exercises</title>
+</head>
+<body>
+ <script>/*
+  function greet(name){
+   if(!name){
+    console.log('Hi there!');
+   }
+   else{
+   console.log(`Hello ${ name}!`);
+  }
+  }
+
+  greet();*/
+  /*
+  function convertToF(celcius){
+   return (celcius*9/5)+32;
+  }
+  console.log(convertToF(25));*/
+  /*
+  function convertToC(faran){
+   return (faran - 32)*5/9;
+  }
+  console.log(convertToC(86));*/
+  function convertTemperature(deg, unit){
+   if(unit === 'C'){
+    return toString((deg*9/5)+32);
+   }
+   else if(unit === 'F'){
+    return toString((deg - 32)*5/9);
+   }
+   else{
+    return 'Not Identified';
+   }
+  }
+
+  console.log(typeof(convertTemperature(86, 'F')));
+ </script>
+</body>
+</html>
