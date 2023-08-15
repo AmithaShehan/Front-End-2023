@@ -1,0 +1,30 @@
+escape characters
+\'
+\"
+\n
+
+interpolation - to add numbers in between string using backtick(``)
+using backticks we can do interpolate and multiline strings
+
+`items(${1 + 1})`
+
+
+variable declaration
+
+let name = 'amtitha'; // can be reassigned
+const value1 = 5; //cannot be reassign
+var variable3 = 3; // same as let can be reassigned, there are some issues, no longer used
+
+bracket notation in objects is useful when we have properties such as delivery-date. because in normal way it will consider - as minus sign
+ console.log(product['delivery-date']);
+we will get undifined as it is not defined in objects declaration. will not throw an error
+
+a snippet using brackets
+  const product = {
+   name:'shirt',
+   ['delivery-time']: '5 days'
+  };
+  console.log(product);
+  console.log(product.name);
+  console.log(product['name']);
+  console.log(product['delivery-time']);
