@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="./styles.css">
+ <title>Arrays</title>
+</head>
+<body>
+ <p id="demo"></p>
+ <p id="array"></p>
+
+ <script>
+  const cars = ['bmw', 'audi', 'benz'];
+  cars[3] = 'opel';
+  document.getElementById('demo').innerHTML = cars.length;
+
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  let text = `<ul>`;
+  for(let i = 0; i<fruits.length; i++){
+   text += "<li>" + fruits[i] + "</li>"
+  };
+  text += `</ul>`;
+  document.getElementById('array').innerHTML = text
+
+ </script>
+</body>
+</html>

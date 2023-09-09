@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="./styles.css">
+ <title>Document</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+ let d = Math.floor(Math.random() * 11);
+ document.getElementById('demo').innerHTML = d;
+ function randomMinMax(min, max){
+  return Math.floor(Math.random() * (7-4)) + 4 ;
+ }
+ document.getElementById('demo').innerHTML = randomMinMax(4,7);
+ document.getElementById('demo').innerHTML = 10 > 9;
+ document.getElementById('demo').innerHTML = Boolean('0');
+ let age = Number(prompt('Provide your age: '));
+ // let voteable = (age<18) ? 'Too young':'Old enough';
+ // alert(voteable);
+ let voteable;
+if(isNaN(age)){
+ voteable = 'Please enter a valid number';
+}
+else{
+ voteable = (age < 18) ? 'Too young':'Old enough';
+}
+alert(voteable);
+const car = {type: 'Fiat', model: '6D20', year: 2023};
+document.getElementById('demo').innerHTML = car.name;
+</script>
+</body>
+</html>

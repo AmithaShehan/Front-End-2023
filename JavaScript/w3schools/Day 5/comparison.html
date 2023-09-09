@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="./styles.css">
+ <title>Document</title>
+</head>
+<body>
+ <p id="demo"></p>
+ <button onclick="headTail()">Head/Tail</button>
+ <p>Today is a <span id="day"></span>..</p>
+ <p id="loop"></p>
+ <br>
+ <p id="forInLoop"></p>
+ <script>
+
+  function headTail(){
+   if(Math.random()<0.5){
+    document.getElementById('demo').innerHTML = 'Heads';
+   }
+   else{
+    document.getElementById('demo').innerHTML = 'Tails';
+   }
+  }
+  let day;
+  switch(new Date().getDay()){
+   case 0:
+    day = 'Sunday';
+    break;
+    case 1:
+    day = 'Monday';
+    break;
+    case 2:
+    day = 'Tuesday';
+    break;
+    case 3:
+    day = 'Wednesday';
+    break;
+    case 4:
+    day = 'Thursday';
+    break;
+    case 5:
+    day = 'Friday';
+    break;
+    case 6:
+    day = 'Saturday';
+    break;
+    default:
+     day = 'not specified';
+  }
+  document.getElementById('day').innerHTML = day;
+
+  const cars = ['Audi', 'Benz', 'BMW', 'Jaguar'];
+  let text = "";
+  for(let i = 0; i < cars.length; i++){
+   text += cars[i] + '<br>';
+  }
+  document.getElementById('loop').innerHTML = text;
+
+  const person = {fname: "Amitha", lname: "Shehan", age : 29}
+  let text2 = '';
+  for(let x in person){
+   text2 += person[x] + ' ';
+  }
+  document.getElementById('forInLoop').innerHTML = text2;
+ </script>
+</body>
+</html>
